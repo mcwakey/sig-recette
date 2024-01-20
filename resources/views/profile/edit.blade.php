@@ -28,7 +28,7 @@
 													<div class="d-flex flex-column">
 														<!--begin::Name-->
 														<div class="d-flex align-items-center mb-2">
-															<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">Mohammed Alhassan</a>
+															<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name }}</a>
 															<a href="#">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen026.svg-->
 																<span class="svg-icon svg-icon-1 svg-icon-primary">
@@ -39,7 +39,7 @@
 																</span>
 																<!--end::Svg Icon-->
 															</a>
-															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Verified</a>
+															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Active</a>
 														</div>
 														<!--end::Name-->
 														<!--begin::Info-->
@@ -52,7 +52,7 @@
 																	<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="black" />
 																</svg>
 															</span>
-															Developer</a>
+															Super Admin</a>
 															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
 															<span class="svg-icon svg-icon-4 me-1">
 																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -60,7 +60,7 @@
 																	<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="black" />
 																</svg>
 															</span>
-															a.m@example.com</a>
+															{{ $user->email }}</a>
 														</div>
 													</div>
 													<div class="d-flex my-4">
@@ -217,14 +217,14 @@
 											<!--begin::Col-->
 											<div class="fv-row mb-10">
                                                 <input maxlength="30" class="form-control form-control-lg form-control-solid" type="phone" name="phone" value="{{ old('phone') }}" autocomplete="off" disabled placeholder="{{ __('phone') }}" />
-                                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                                <!-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
                                             </div>
 											<!--end::Col-->
 										</div>
 										<div class="row">
 											<label class="col-lg-4 fw-bold text-muted">Email</label>
 											<div class="fv-row mb-10">
-                                                <input maxlength="30" class="form-control form-control-lg form-control-solid" type="email" name="email" value="{{ old('email', $user->email) }}" autocomplete="off" disabled placeholder="{{ __('Email') }}" />
+                                                <input maxlength="30" class="form-control form-control-lg form-control-solid" type="email" name="email" value="{{ old('email', $user->email) }}" autocomplete="off" placeholder="{{ __('Email') }}" />
                                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                             </div>
 										</div>
@@ -250,14 +250,14 @@
 											<label class="col-lg-4 fw-bold text-muted">Municipal</label>
 											<div class="fv-row mb-10">
                                                 <input maxlength="30" class="form-control form-control-lg form-control-solid" type="text" name="municipal" value="{{ old('municipal') }}" autocomplete="off" disabled placeholder="{{ __('municipal') }}" />
-                                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                                <!-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
                                             </div>
 										</div>
 										<div class="row">
 											<label class="col-lg-4 fw-bold text-muted">Zone</label>
 											<div class="fv-row mb-10">
                                                 <input maxlength="30" class="form-control form-control-lg form-control-solid" type="text" name="zone" value="{{ old('zone') }}" autocomplete="off" disabled placeholder="{{ __('zone') }}" />
-                                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                                <!-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
                                             </div>
 										</div>
 										<!-- <div class="row mb-10">
@@ -364,21 +364,34 @@
 										
 										<!-- <a href="#" class="btn btn-success align-self-center">Edit Profile</a> -->
 									</div>
+                                    
+									<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#kt_modal_create_account">{{ __('add_payer') }}</button>
 
-                                    <x-danger-button
-                                        x-data=""
-                                        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-                                    >{{ __('Delete Account') }}</x-danger-button>
+								</div>
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Post-->
+                   </div>
 
-                                    <div  type="submit" id="login_submit" class="text-center" onclick="$dispatch('open-modal', 'confirm-user-deletion')">
-                                        <button class="btn btn-lg btn-danger w-100 mb-5">
-                                            <span class="indicator-label">{{ __('Delete Account') }}</span>
-                                            <span class="indicator-progress">{{ __('wait') }}
-                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                        </button>
-                                    </div>
+        <div class="modal fade" id="kt_modal_create_account" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog mw-1000px">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2>{{ __('Delete Account') }}</h2>
+						<div class="btn btn-sm btn-icon btn-active-color-success" data-bs-dismiss="modal">
+							<span class="svg-icon svg-icon-1">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+								</svg>
+							</span>
+						</div>
+					</div>
+					<div class="modal-body scroll-y m-5">
+						<div class="stepper stepper-links d-flex flex-column" id="kt_create_account_stepper">
+							
 
-                                    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
                                         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
                                             @csrf
                                             @method('delete')
@@ -391,36 +404,38 @@
                                                 {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
                                             </p>
 
-                                            <div class="mt-6">
-                                                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
-
-                                                <x-text-input
-                                                    id="password"
-                                                    name="password"
-                                                    type="password"
-                                                    class="mt-1 block w-3/4"
-                                                    placeholder="{{ __('Password') }}"
-                                                />
-
-                                                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                                            <div class="row mb-12">
+                                                <div class="col-md-6 fv-row">
+                                                    <label class="required fs-6 fw-bold form-label mb-2">{{ __('Password') }}</label>
+                                                    <div class="row fv-row">
+                                                        <div class="position-relative">
+                                                            <input type="password" class="form-control form-control-solid" minlength="3" maxlength="50" placeholder="{{ __('Password') }}" name="password" id="password" />
+                                                            <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
-                                            <div class="mt-6 flex justify-end">
-                                                <x-secondary-button x-on:click="$dispatch('close')">
-                                                    {{ __('Cancel') }}
-                                                </x-secondary-button>
-
-                                                <x-danger-button class="ms-3">
-                                                    {{ __('Delete Account') }}
-                                                </x-danger-button>
+                                            <div class="row mb-6">
+                                                <div class="col-md-3 fv-row">
+                                                    <button class="btn btn-lg btn-light-primary w-100 mb-5" type="reset" onclick="$dispatch('close')">
+                                                        <span class="indicator-label">{{ __('Cancel') }}</span>
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3 fv-row">
+                                                <button class="btn btn-lg btn-danger w-100 mb-5">
+                                                        <span class="indicator-label">{{ __('Delete Account') }}</span>
+                                                        <span class="indicator-progress">{{ __('wait') }}
+                                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
-                                    </x-modal>
 
-								</div>
-							</div>
-							<!--end::Container-->
+							
 						</div>
-						<!--end::Post-->
-                   </div>
+					</div>
+				</div>
+			</div>
+		</div>
 @endsection
