@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+                <x-auth-session-status class="mb-4" :status="session('status')" />
     
                 <div class="d-flex flex-column flex-lg-row-fluid py-10">
                     <div class="d-flex flex-center flex-column flex-column-fluid">

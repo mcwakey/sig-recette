@@ -57,6 +57,9 @@
 
 
     "Remember me" : "Se souvenir de moi",
-    "documentation" : "La documentation"
+    "documentation" : "La documentation",
+    "password reset" : "Réinitialiser le mot de passe",
+    "Remeber? Login" : "Se souviens? Se connecter"
+
 
 }

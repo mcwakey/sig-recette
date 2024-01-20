@@ -698,7 +698,7 @@
 											<!--end::Menu separator-->
 											<!--begin::Menu item-->
 											<div class="menu-item px-5">
-												<a href="{{ route('profile.edit') }}" class="menu-link px-5">My Profile</a>
+												<a href="{{ route('profile.index') }}" class="menu-link px-5">My Profile</a>
 											</div>
 											<div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
 												<a href="#" class="menu-link px-5">

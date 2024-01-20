@@ -37,6 +37,7 @@
     "bio_info" : "Bio Information",
     "dashboard" : "Dashboard",
     "list" : "List",
+    "add" : "Add",
     "invoice" : "Invoice",
     "prepare" : "Prepare",
     "revenue" : "Revenue",
@@ -56,6 +57,9 @@
 
 
     "Remember me" : "Remember me",
-    "documentation" : "Documentation"
+    "documentation" : "Documentation",
+    "password reset" : "Password Reset",
+    "Remeber? Login" : "Remeber? Login"
+
 
 }

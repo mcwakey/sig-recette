@@ -11,6 +11,17 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+
+    /**
+     * Display the user's profile.
+     */
+    public function index(Request $request): View
+    {
+        return view('profile.index', [
+            'user' => $request->user(),
+        ]);
+    }
+    
     /**
      * Display the user's profile form.
      */
