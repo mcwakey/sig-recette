@@ -51,7 +51,7 @@
 																	<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="black" />
 																</svg>
 															</span>
-															Super Admin</a>
+															{{ $user->role->name }}</a>
 															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
 															<span class="svg-icon svg-icon-4 me-1">
 																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -203,7 +203,7 @@
 											<!--begin::Col-->
 											<div class="col-lg-8 d-flex align-items-center">
 												<span class="fw-bolder fs-6 text-gray-800 me-2">0245 340461</span>
-												<span class="badge badge-success">Verified</span>
+												<!-- <span class="badge badge-success">Verified</span> -->
 											</div>
 											<!--end::Col-->
 										</div>

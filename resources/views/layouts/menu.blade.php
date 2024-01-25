@@ -26,6 +26,8 @@
 										<span class="menu-section text-muted text-uppercase fs-8 ls-1">{{ __('home') }}</span>
 									</div>
 								</div>
+
+								@if(Auth::user()->role_id == '3' || Auth::user()->role_id == '4' || Auth::user()->role_id == '5' || Auth::user()->role_id == '6' || Auth::user()->role_id == '7')
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -41,13 +43,13 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/AddPayer">
+											<a class="menu-link" href="{{ url('/payer/create') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
 												<span class="menu-title">{{ __('add') }}</span>
 											</a>
-											<a class="menu-link" href="/AddPayer">
+											<a class="menu-link" href="{{ url('/payer') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -64,6 +66,8 @@
 										</div> -->
 									</div>
 								</div>
+								@endif
+								@if(Auth::user()->role_id == '3' || Auth::user()->role_id == '4' || Auth::user()->role_id == '5' || Auth::user()->role_id == '6' || Auth::user()->role_id == '7')
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -79,7 +83,7 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/Invoices">
+											<a class="menu-link" href="/invoice">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -87,7 +91,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/RejectInvoices">
+											<a class="menu-link" href="/invoice">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -95,7 +99,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-													<a class="menu-link" href="/SuccessInvoice">
+													<a class="menu-link" href="/invoice">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
@@ -104,7 +108,8 @@
 												</div>
 									</div>
 								</div>
-
+								@endif
+								@if(Auth::user()->role_id == '1' || Auth::user()->role_id == '2' || Auth::user()->role_id == '3' || Auth::user()->role_id == '4' || Auth::user()->role_id == '5' || Auth::user()->role_id == '6' || Auth::user()->role_id == '7')
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -145,7 +150,8 @@
 												</div> -->
 									</div>
 								</div>
-
+								@endif
+								@if(Auth::user()->role_id == '3' || Auth::user()->role_id == '4' || Auth::user()->role_id == '5' || Auth::user()->role_id == '6' || Auth::user()->role_id == '7')
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -186,7 +192,8 @@
 												</div>
 									</div>
 								</div>
-
+								@endif
+								@if (Auth::user()->role_id == '1' || Auth::user()->role_id == '2' || Auth::user()->role_id == '3' || Auth::user()->role_id == '4' || Auth::user()->role_id == '5' || Auth::user()->role_id == '6' || Auth::user()->role_id == '7')
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -231,6 +238,8 @@
 										</div> -->
 									</div>
 								</div>
+								@endif
+								@if (Auth::user()->role_id == '4' || Auth::user()->role_id == '5' || Auth::user()->role_id == '6' || Auth::user()->role_id == '7')
 								<div class="menu-item">
 									<div class="menu-content pt-8 pb-2">
 										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Apps</span>
@@ -297,7 +306,7 @@
 										</div>
 									</div>
 								</div>
-
+								@endif
                            </div>
                        </div>
                    </div>

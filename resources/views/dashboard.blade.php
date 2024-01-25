@@ -25,7 +25,7 @@
                                                 <div class="mb-2">
                                                     <h1 class="fw-bold text-gray-800 text-center lh-lg">{{ __('hello') }},
                                                     <br />
-                                                    <span class="fw-boldest"><?php echo 'Administrator' ;?></span></h1>
+                                                    <span class="fw-boldest">{{ Auth::user()->role->name }}</span></h1>
                                                     <div class="flex-grow-1 bgi-no-repeat bgi-size-contain bgi-position-x-center card-rounded-bottom h-200px mh-200px my-5 my-lg-12" style="background-image:url("{{ asset('media/svg/illustrations/easy/4.svg') }}""></div>
                                                 </div>
                                                 <div class="text-center">

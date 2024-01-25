@@ -19,6 +19,11 @@
                 </svg>
             </span>
         </div>
+		<script src="{{ asset('js/custom/apps/ecommerce/customers/listing/listing.js') }}"></script>
+		<script src="{{ asset('js/custom/apps/ecommerce/customers/listing/add.js') }}"></script>
+		<script src="{{ asset('js/custom/apps/ecommerce/customers/listing/export.js') }}"></script>
+		<script src="{{ asset('js/custom/utilities/modals/create-account.js') }}"></script>
+
         <script src="{{ asset('plugins/global/plugins.bundle.js') }}"></script>
         <script src="{{ asset('js/scripts.bundle.js') }}"></script>
         <script src="{{ asset('plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
@@ -34,6 +39,12 @@
             // console.log(cTime);
              document.getElementById('formattedTime').innerText = cTime;
         </script>
+        <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            $('#kt_customers_table').DataTable();
+        });
+    </script>
     </body>
     <!--end::Body-->
 </html>
